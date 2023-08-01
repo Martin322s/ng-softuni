@@ -1,8 +1,25 @@
-function carFactory(input: { model: string, power: number, carriage: string, color: string, wheelsize: number }) {
-    let resultObj: { model: string, engine: { power: number, volume: number }, carriage: { type: string, color: string }, wheels: number[] } = { model: "", engine: { power: 0, volume: 0 }, carriage: { type: "", color: "" }, wheels: [] };
+function carFactory(
+    input: {
+        model: string,
+        power: number,
+        carriage: string,
+        color: string,
+        wheelsize: number
+    }) {
+
+    let resultObj: {
+        model: string,
+        engine: { power: number, volume: number },
+        carriage: { type: string, color: string },
+        wheels: number[]
+    } = {
+        model: "",
+        engine: { power: 0, volume: 0 },
+        carriage: { type: "", color: "" }, wheels: []
+    };
+    
     let engine = { power: 0, volume: 0 };
     let carriage = { type: "", color: "" };
-
 
     resultObj.model = input.model;
 
