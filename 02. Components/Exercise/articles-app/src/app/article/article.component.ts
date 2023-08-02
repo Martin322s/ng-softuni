@@ -7,15 +7,16 @@ import { Article } from '../models/article.model';
     styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
-    private symbols: number = 250;
+    private symbols: number = 401;
+
     @Input() article!: Article;
     @Input() articleDesc!: string;
-    descToShow: string | undefined;
+    descToShow: string;
     articleDescLen: number;
     showReadMoreBtn: boolean = true;
     showHideBtn: boolean = false;
     imageIsShown: boolean = false;
-    imageButtonTitle: string = "Show more";
+    imageButtonTitle: string = "Show Image";
 
     constructor() {
         this.articleDescLen = 0;
@@ -24,6 +25,7 @@ export class ArticleComponent {
 
     readMore(): void {
         this.articleDescLen += this.symbols;
+
         if (this.articleDescLen >= this.articleDesc.length) {
             this.showHideBtn = true;
             this.showReadMoreBtn = false;
