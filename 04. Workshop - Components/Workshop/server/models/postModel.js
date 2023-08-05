@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { ObjectId } = mongoose.Schema.Types;
 
 const postSchema = new mongoose.Schema({
     text: {
@@ -7,15 +6,15 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     likes: [{
-        type: ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "User"
     }],
     userId: {
-        type: ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "User"
     },
     themeId: {
-        type: ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "Theme"
     },
 }, { timestamps: { createdAt: 'created_at' } });
