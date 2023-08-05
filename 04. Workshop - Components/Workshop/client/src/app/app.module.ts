@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AsideComponent } from './aside/aside.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,11 @@ import { AsideComponent } from './aside/aside.component';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    AsideComponent
+    AsideComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent, FooterComponent]
