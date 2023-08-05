@@ -1,5 +1,4 @@
 const { userModel, themeModel, postModel } = require('../models');
-const postModel2 = require('../models/postModel');
 
 function newPost(text, userId, themeId) {
     return postModel.create({ text, userId, themeId })
@@ -13,12 +12,12 @@ function newPost(text, userId, themeId) {
 
 function getLatestsPosts(req, res, next) {
     const limit = Number(req.query.limit) || 0;
-    
-    postModel2.find()
-    .limit(limit)
-    .populate('themeId userId')
-    .then(posts => {
-            console.log(posts);
+
+    postModel.find()
+        .sort({ created_at: -1 })
+        .limit(limit)
+        .populate('themeId userId')
+        .then(posts => {
             res.status(200).json(posts)
         })
         .catch(next);
@@ -74,6 +73,8 @@ function deletePost(req, res, next) {
 function like(req, res, next) {
     const { postId } = req.params;
     const { _id: userId } = req.user;
+
+    console.log('like')
 
     postModel.updateOne({ _id: postId }, { $addToSet: { likes: userId } }, { new: true })
         .then(() => res.status(200).json({ message: 'Liked successful!' }))
