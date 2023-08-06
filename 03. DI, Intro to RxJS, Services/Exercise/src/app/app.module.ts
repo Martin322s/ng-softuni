@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
+import { LiskComponent } from './lisk/lisk.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent
+    UsersComponent,
+    LiskComponent
   ],
   imports: [
     BrowserModule
