@@ -9,6 +9,8 @@ import { AsideComponent } from './aside/aside.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MainComponent } from './main/main.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomeComponent,
     AsideComponent,
     NotFoundComponent,
+    MainComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
