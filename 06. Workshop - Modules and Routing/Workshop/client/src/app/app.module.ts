@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
+import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RegisterComponent } from './register/register.component';
     NewThemeComponent,
     ProfileComponent,
     RegisterComponent,
+    ThemeDetailsComponent,
   ],
   imports: [
     BrowserModule,
