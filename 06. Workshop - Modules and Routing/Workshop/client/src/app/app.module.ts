@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AsideComponent } from './aside/aside.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ApiService } from './api.service';
     HeaderComponent,
     HomeComponent,
     AsideComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
