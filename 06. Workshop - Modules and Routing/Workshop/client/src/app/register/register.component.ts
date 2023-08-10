@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { generateUniqueId } from '../utils/generateToken';
+import { users } from '../database/data';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -6,13 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  constructor(private router: Router) {
 
+  }
   getUserData(event: MouseEvent, data: any) {
     event.preventDefault();
     const { username, email, tel, password, rePassword } = data;
 
     if (password === rePassword) {
-      console.log(username, email, tel, password);
+      const uniqueId = generateUniqueId();
+      users.push({ _id: uniqueId, username, phone: tel, email, password })
+      this.router.navigate(['/']);
     }
   }
 }
