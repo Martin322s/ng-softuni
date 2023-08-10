@@ -15,6 +15,7 @@ import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ThemeDetailsComponent } from './theme-details/theme-details.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ThemeDetailsComponent } from './theme-details/theme-details.component';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule
   ],
   providers: [
