@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: 'users/login', component: LoginComponent },
     { path: 'users/profile', component: ProfileComponent },
     { path: 'themes', component: HomeComponent },
-    { path: 'new-theme', component: NewThemeComponent },
+    { path: 'themes/new-theme', component: NewThemeComponent },
     { path: 'details/:id', component: ThemeDetailsComponent },
     { path: '**', component: NotFoundComponent }
 ];
