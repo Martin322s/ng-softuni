@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./theme-details.component.css']
 })
 export class ThemeDetailsComponent {
-
+  loggedIn: false | undefined;
 }
