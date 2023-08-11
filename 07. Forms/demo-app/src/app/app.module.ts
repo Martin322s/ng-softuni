@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +18,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MyIfDirective,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, //for template driven forms
-    ReactiveFormsModule
+    ReactiveFormsModule // for reactive driven forms
   ],
   providers: [],
   bootstrap: [AppComponent]
