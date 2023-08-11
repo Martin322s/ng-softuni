@@ -3,7 +3,7 @@
         <div class="header-background">
             <span>New Theme</span>
         </div>
-        <form>
+        <form #postForm="ngForm" (ngSubmit)="submitHandler(postForm)">
             <div class="new-theme-title">
                 <label for="themeName">Title <span class="red">*</span></label>
                 <input type="text" name="themeName" id="themeName" ngModel #themeName="ngModel" required>
@@ -11,7 +11,7 @@
                     <p class="error" *ngIf="themeName.errors?.['required']">
                         Theme name is required.
                     </p>
-                    <p class="error" *ngIf="usernameLength(themeName.value)">
+                    <p class="error" *ngIf="usernameLength(themeName.value, 5)">
                         Theme name must be at least 5 characters long.
                     </p>
                 </ng-container>
@@ -24,14 +24,14 @@
                     <p class="error" *ngIf="post.errors?.['required']">
                         The field with your post is required.
                     </p>
-                    <p class="error" *ngIf="usernameLength(post.value)">
+                    <p class="error" *ngIf="usernameLength(post.value, 10)">
                         Post must be at least 10 characters long.
                     </p>
                 </ng-container>
             </div>
             <div class="new-theme-buttons">
                 <button class="cancel">Cancel</button>
-                <button class="public">Post</button>
+                <button class="public" [disabled]="postForm.invalid">Post</button>
             </div>
 
         </form>
