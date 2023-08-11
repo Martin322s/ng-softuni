@@ -6,13 +6,16 @@
             <!-- username -->
             <p class="field field-icon">
                 <label for="username"><span><i class="fas fa-user"></i></span></label>
-                <input [ngClass]="{'input-error': usernameInput.touched  && usernameInput.errors?.['required']}"
+                <input [ngClass]="{'input-error': usernameInput.touched  && (usernameInput.errors?.['required'] || usernameLength(usernameInput.value))}"
                     type="text" name="username" id="username" placeholder="Johny" required #usernameInput="ngModel"
                     ngModel>
             </p>
-            <ng-container *ngIf="usernameInput.touched  && usernameInput.errors?.['required']">
-                <p class="error">
+            <ng-container *ngIf="usernameInput.touched">
+                <p class="error" *ngIf="usernameInput.errors?.['required']">
                     Username is required!
+                </p>
+                <p class="error" *ngIf="usernameLength(usernameInput.value)">
+                    Username should be at least 5 characters long!
                 </p>
             </ng-container>
 

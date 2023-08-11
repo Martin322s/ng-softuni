@@ -16,9 +16,17 @@ export class RegisterComponent {
     isValidEmail(email: string): boolean {
         console.log(email);
         const isValid = /[^@]{6,}@gmail\.(bg|com)/.test(email);
+        return isValid;
+    }
+
+    usernameLength(username: string): boolean {
+        const isValid = username.length < 5;
+        console.log(username);
+        
         console.log(isValid);
         
         return isValid;
+
     }
 
     submitHandler(formData: NgForm) {
