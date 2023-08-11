@@ -6,25 +6,38 @@
 
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-                <input class="input-error" type="email" name="email" id="email" placeholder="john.doe@gmail.com" autocomplete="username">
+                <input 
+                    [ngClass]="{'input-error': email.touched && !isValidEmail(email.value)}"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="john.doe@gmail.com"
+                    autocomplete="username"
+                    ngModel
+                    #email="ngModel"
+                    required
+                >
             </p>
-            <p class="error">
-                Email is required!
-            </p>
-            <!-- <p class="error">
-                Email is not valid!
-            </p> -->
+            <ng-container *ngIf="email.touched">
+                <p class="error" *ngIf="email.errors?.['required']">
+                    Email is required!
+                </p>
+                <p class="error" *ngIf="!isValidEmail(email.value)">
+                    Email is not valid!
+                </p>
+            </ng-container>
 
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <input type="password" name="password" id="password" placeholder="******" autocomplete="new-password">
+                <input type="password" name="password" id="password" placeholder="******" autocomplete="new-password"
+                    ngModel #password="ngModel">
             </p>
-            <!-- <p class="error">
+            <p class="error">
                 Password is required!
             </p>
             <p class="error">
                 Password must be at least 4 characters!
-            </p> -->
+            </p>
 
             <button disabled>Login</button>
 

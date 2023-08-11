@@ -24,8 +24,7 @@
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
                 <input [ngClass]="{'input-error': emailInput.touched  && !isValidEmail(emailInput.value)}" type="email"
-                    name="email" id="email" placeholder="john.doe@gmail.com" ngModel #emailInput="ngModel" required
-                    pattern="/[^@]{6,}@gmail\.(bg|com)/">
+                    name="email" id="email" placeholder="john.doe@gmail.com" ngModel #emailInput="ngModel" required>
             </p>
 
             <ng-container *ngIf="emailInput.touched">
@@ -49,17 +48,9 @@
             <!-- password -->
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <input
-                [ngClass]="{'input-error': passwordInput.touched  && usernameLength(passwordInput.value)}" 
-                    type="password" 
-                    ngModel 
-                    name="password" 
-                    id="password" 
-                    placeholder="******"
-                    autocomplete="new-password" 
-                    #passwordInput="ngModel" 
-                    required
-                >
+                <input [ngClass]="{'input-error': passwordInput.touched  && usernameLength(passwordInput.value)}"
+                    type="password" ngModel name="password" id="password" placeholder="******"
+                    autocomplete="new-password" #passwordInput="ngModel" required>
             </p>
             <p class="error" *ngIf="passwordInput.touched && passwordInput.errors?.['required']">
                 Password is required!
@@ -73,15 +64,8 @@
                 <label for="rePassword"><span><i class="fas fa-lock"></i></span></label>
                 <input
                     [ngClass]="{'input-error': rePassword.touched  && !passwordEquality(passwordInput.value, rePassword.value)}"
-                    type="password" 
-                    ngModel 
-                    name="rePassword" 
-                    id="rePassword" 
-                    placeholder="******"
-                    autocomplete="new-password" 
-                    #rePassword="ngModel" 
-                    ngModel 
-                />
+                    type="password" ngModel name="rePassword" id="rePassword" placeholder="******"
+                    autocomplete="new-password" #rePassword="ngModel" ngModel />
             </p>
             <p class="error" *ngIf="rePassword.touched && !passwordEquality(passwordInput.value, rePassword.value)">
                 Repeat Password does not match password!
