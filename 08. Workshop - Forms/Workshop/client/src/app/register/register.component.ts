@@ -13,6 +13,14 @@ export class RegisterComponent {
 
     }
 
+    isValidEmail(email: string): boolean {
+        console.log(email);
+        const isValid = /[^@]{6,}@gmail\.(bg|com)/.test(email);
+        console.log(isValid);
+        
+        return isValid;
+    }
+
     submitHandler(formData: NgForm) {
         console.log(formData.value);
     }

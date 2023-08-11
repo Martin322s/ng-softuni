@@ -6,16 +6,9 @@
             <!-- username -->
             <p class="field field-icon">
                 <label for="username"><span><i class="fas fa-user"></i></span></label>
-                <input 
-                    class="input-error" 
-                    type="text" 
-                    name="username" 
-                    id="username" 
-                    placeholder="Johny"
-                    required 
-                    #usernameInput="ngModel" 
-                    ngModel
-                >
+                <input [ngClass]="{'input-error': usernameInput.touched  && usernameInput.errors?.['required']}"
+                    type="text" name="username" id="username" placeholder="Johny" required #usernameInput="ngModel"
+                    ngModel>
             </p>
             <ng-container *ngIf="usernameInput.touched  && usernameInput.errors?.['required']">
                 <p class="error">
@@ -26,14 +19,27 @@
             <!-- email -->
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-                <input type="email" name="email" id="email" placeholder="john.doe@gmail.com" ngModel>
+                <input
+                [ngClass]="{'input-error': emailInput.touched  && !isValidEmail(emailInput.value)}"
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="john.doe@gmail.com" 
+                    ngModel
+                    #emailInput="ngModel"
+                    required
+                    pattern="/[^@]{6,}@gmail\.(bg|com)/"
+                >
             </p>
-            <!-- <p class="error">
-                Email is required!
-            </p>
-            <p class="error">
-                Email is not valid!
-            </p> -->
+
+            <ng-container *ngIf="emailInput.touched">
+                <p class="error" *ngIf="emailInput.errors?.['required']">
+                    Email is required!
+                </p>
+                <p class="error" *ngIf="!isValidEmail(emailInput.value)">
+                    Email is not valid!
+                </p>
+            </ng-container>
 
             <!-- telephone -->
             <p class="field field-icon">

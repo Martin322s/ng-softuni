@@ -91,6 +91,6 @@ p.error {
     padding-top: 0;
 }
 
-.input-error-found {
-    border-left-color: red;
+.input-error {
+    border-left-color: red !important;
 }
