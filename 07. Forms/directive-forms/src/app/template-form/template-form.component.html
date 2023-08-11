@@ -10,17 +10,20 @@
                 class="error" 
                 placeholder="Mark Ulrich"
                 autocomplete="username" 
-                ngModel
-                #username
+                [(ngModel)]="fullName"
+                required 
+                pattern="^[A-Z][a-z]* [A-Z][a-z]*$"
             >
         </p>
 
-        <!-- if error -->
-        <p class="error">
+        <p class="error" *ngIf="form.controls['invalid'] && form.controls['username'].touched">
             Message for Error
         </p>
-        <!-- end if error -->
 
+        <p class="error" *ngIf="form.controls['username']?.errors?.['required']">
+            Username is required!
+        </p>
+    
         <p class="field field-icon">
             <label for="email"><span><i class="fas fa-envelope"></i></span></label>
             <input type="text" name="email" id="email" placeholder="marк@gmial.com" ngModel>

@@ -1,4 +1,5 @@
 import { Component, OnChanges, ViewChild } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-template-form',
@@ -22,14 +23,16 @@ export class TemplateFormComponent {
       value: 1,
       content: 'Designer'
     }
-  ]
+  ];
+
+  fullName: string = '';
 
   @ViewChild('form') form: any;
-  
+
   constructor() {
   }
 
-  
+
   submitHandler() {
     console.log(this.form.value);
     this.form.reset();
