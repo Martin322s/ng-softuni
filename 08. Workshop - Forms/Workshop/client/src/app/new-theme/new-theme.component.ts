@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-theme.component.css']
 })
 export class NewThemeComponent {
-
+  usernameLength(username: string): boolean {
+    const isValid = username.length < 10;
+    return isValid;
+  }
 }
