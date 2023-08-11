@@ -7,11 +7,19 @@ import { NgForm } from '@angular/forms';
     styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+    isEmptyUsername: boolean = false;
+
     constructor() {
 
     }
 
     submitHandler(formData: NgForm) {
         console.log(formData.value);
+    }
+
+    blurEvent(username: HTMLInputElement) {
+        if (username.value === '') {
+            this.isEmptyUsername = true;
+        }
     }
 }
