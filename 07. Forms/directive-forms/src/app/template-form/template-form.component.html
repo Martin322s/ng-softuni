@@ -1,17 +1,10 @@
-<form #form="ngForm" (ngSubmit)="submitHandler(form)">
+<form #form="ngForm" (ngSubmit)="submitHandler()">
     <fieldset>
         <h1>Registration Form</h1>
         <p class="field field-icon">
             <label for="username"><span><i class="fas fa-user"></i></span></label>
-            <input 
-                type="text" 
-                name="username"
-                id="username" 
-                class="error" 
-                placeholder="Mark Ulrich"
-                autocomplete="username"
-                ngModel
-            >
+            <input type="text" name="username" id="username" class="error" placeholder="Mark Ulrich"
+                autocomplete="username" ngModel>
         </p>
 
         <!-- if error -->
@@ -28,7 +21,9 @@
         <p class="field field-icon">
             <label for="tel"><span><i class="fas fa-phone"></i></span></label>
             <select name="tel" id="tel" class="tel">
-                <option value="1">+359</option>
+                <option *ngFor="let option of options" value="{{option.value}}">
+                    {{option.content}}
+                </option>
             </select>
             <input type="text" name="tel" id="phone" placeholder="888 888" autocomplete="phone" ngModel>
         </p>
@@ -42,12 +37,14 @@
 
         <p class="field field-icon">
             <label for="password"><span><i class="fas fa-lock"></i></span></label>
-            <input type="password" ngModel name="password" id="password" placeholder="******" autocomplete="current-password">
+            <input type="password" ngModel name="password" id="password" placeholder="******"
+                autocomplete="current-password">
         </p>
 
         <p class="field field-icon">
             <label for="re-password"><span><i class="fas fa-lock"></i></span></label>
-            <input type="password" ngModel name="re-password" id="re-password" placeholder="******">
+            <input type="password" ngModel name="re-password" id="re-password" placeholder="******"
+                autocomplete="re-password">
         </p>
 
         <p>
