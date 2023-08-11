@@ -6,7 +6,8 @@
             <!-- username -->
             <p class="field field-icon">
                 <label for="username"><span><i class="fas fa-user"></i></span></label>
-                <input [ngClass]="{'input-error': usernameInput.touched  && (usernameInput.errors?.['required'] || usernameLength(usernameInput.value))}"
+                <input
+                    [ngClass]="{'input-error': usernameInput.touched  && (usernameInput.errors?.['required'] || usernameLength(usernameInput.value))}"
                     type="text" name="username" id="username" placeholder="Johny" required #usernameInput="ngModel"
                     ngModel>
             </p>
@@ -22,17 +23,9 @@
             <!-- email -->
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-                <input
-                [ngClass]="{'input-error': emailInput.touched  && !isValidEmail(emailInput.value)}"
-                    type="email" 
-                    name="email" 
-                    id="email" 
-                    placeholder="john.doe@gmail.com" 
-                    ngModel
-                    #emailInput="ngModel"
-                    required
-                    pattern="/[^@]{6,}@gmail\.(bg|com)/"
-                >
+                <input [ngClass]="{'input-error': emailInput.touched  && !isValidEmail(emailInput.value)}" type="email"
+                    name="email" id="email" placeholder="john.doe@gmail.com" ngModel #emailInput="ngModel" required
+                    pattern="/[^@]{6,}@gmail\.(bg|com)/">
             </p>
 
             <ng-container *ngIf="emailInput.touched">
@@ -56,23 +49,43 @@
             <!-- password -->
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <input type="password" ngModel name="password" id="password" placeholder="******"
-                    autocomplete="new-password">
+                <input
+                [ngClass]="{'input-error': passwordInput.touched  && usernameLength(passwordInput.value)}" 
+                    type="password" 
+                    ngModel 
+                    name="password" 
+                    id="password" 
+                    placeholder="******"
+                    autocomplete="new-password" 
+                    #passwordInput="ngModel" 
+                    required
+                >
             </p>
-            <p class="error">
+            <p class="error" *ngIf="passwordInput.touched && passwordInput.errors?.['required']">
                 Password is required!
             </p>
-            <p class="error">
-                Password must be at least 4 characters!
+            <p class="error" *ngIf="passwordInput.touched && usernameLength(passwordInput.value)">
+                Password must be at least 5 characters!
             </p>
 
             <!-- rePassword -->
             <p class="field field-icon">
                 <label for="rePassword"><span><i class="fas fa-lock"></i></span></label>
-                <input type="password" ngModel name="rePassword" id="rePassword" placeholder="******"
-                    autocomplete="new-password">
+                <input
+                    [ngClass]="{'input-error': rePassword.touched  && !passwordEquality(passwordInput.value, rePassword.value)}"
+                    type="password" 
+                    ngModel 
+                    name="rePassword" 
+                    id="rePassword" 
+                    placeholder="******"
+                    autocomplete="new-password" 
+                    #rePassword="ngModel" 
+                    ngModel 
+                />
             </p>
-            <!-- <p class="error">Repeat Password does not match password!</p> -->
+            <p class="error" *ngIf="rePassword.touched && !passwordEquality(passwordInput.value, rePassword.value)">
+                Repeat Password does not match password!
+            </p>
 
             <button>Create Account</button>
 

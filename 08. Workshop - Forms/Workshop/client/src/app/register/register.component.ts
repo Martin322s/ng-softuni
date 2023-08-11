@@ -29,6 +29,14 @@ export class RegisterComponent {
 
     }
 
+    passwordEquality(password: string, passwordTwo: string): boolean {
+        if (password === passwordTwo) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     submitHandler(formData: NgForm) {
         console.log(formData.value);
     }
