@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent {
+  isValidEmail(email: string): boolean {
+    const isValid = /[^@]{6,}@gmail\.(bg|com)/.test(email);
+    return isValid;
+  }
 
+  usernameLength(username: string): boolean {
+    const isValid = username.length < 5;
+    return isValid;
+  }
 }
