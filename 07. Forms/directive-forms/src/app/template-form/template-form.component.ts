@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-template-form',
@@ -6,7 +6,7 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent {
-  options = [
+  phoneOptions = [
     {
       value: 1,
       content: '+359'
@@ -17,12 +17,21 @@ export class TemplateFormComponent {
     }
   ];
 
-  @ViewChild('form') form: any;
-  constructor() {
+  buildingOtions = [
+    {
+      value: 1,
+      content: 'Designer'
+    }
+  ]
 
+  @ViewChild('form') form: any;
+  
+  constructor() {
   }
 
+  
   submitHandler() {
     console.log(this.form.value);
+    this.form.reset();
   }
 }
