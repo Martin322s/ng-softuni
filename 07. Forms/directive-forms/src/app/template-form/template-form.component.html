@@ -17,16 +17,20 @@
         </p>
 
         <p class="error" *ngIf="form.controls['invalid'] && form.controls['username'].touched">
-            Message for Error
+            First and Last name are reuiqred!
         </p>
 
-        <p class="error" *ngIf="form.controls['username']?.errors?.['required']">
+        <p class="error" *ngIf="form.value.username === '' || form.controls['username']?.errors?.['required']">
             Username is required!
         </p>
     
         <p class="field field-icon">
             <label for="email"><span><i class="fas fa-envelope"></i></span></label>
             <input type="text" name="email" id="email" placeholder="marк@gmial.com" ngModel>
+        </p>
+
+        <p class="error" *ngIf="form.value?.email === '' || form.controls['email']?.errors?.['required']">
+            Invalid email address!
         </p>
 
         <p class="field field-icon">
