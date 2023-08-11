@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeDetailsComponent } from './theme-details/theme-details.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
     { path: '', component: MainComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'themes', component: HomeComponent },
     { path: 'new-theme', component: NewThemeComponent },
     { path: 'details/:id', component: ThemeDetailsComponent },
+    { path: 'edit/profile', component: EditProfileComponent },
     { path: '**', component: NotFoundComponent }
 ];
 

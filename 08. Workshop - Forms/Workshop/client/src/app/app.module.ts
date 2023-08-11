@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AppRoutingModule } from './app-routing.module';
     ProfileComponent,
     RegisterComponent,
     ThemeDetailsComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
