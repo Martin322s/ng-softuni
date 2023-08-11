@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-template-form',
@@ -6,11 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent {
+  options = [
+    {
+      value: 1,
+      content: '+359'
+    },
+    {
+      value: 2,
+      content: '+44'
+    }
+  ];
+
+  @ViewChild('form') form: any;
   constructor() {
 
   }
 
-  submitHandler(form: any) {
-    console.log(form.value);
+  submitHandler() {
+    console.log(this.form.value);
   }
 }
