@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { interval, map } from 'rxjs';
+import { UserService } from './user.service';
 
 function add(a: number | string, b: number | string): number | string {
     return (a as any) + (b as any);
@@ -10,7 +11,11 @@ function add(a: number | string, b: number | string): number | string {
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+    constructor(private userService: UserService) {
+
+    }
     title = 'Pipes-interceptors';
 
     obj = {
@@ -44,9 +49,17 @@ export class AppComponent {
     $time = interval(1000).pipe(
         map(() => new Date())
     )
-    // myPromise = new Promise((res) => {
-    //     setTimeout(() => {
-    //         res('Hello from promise')
-    //     }, 5000);
-    // })
+
+    myPromise = new Promise((res) => {
+        setTimeout(() => {
+            res('Hello from promise')
+        }, 5000);
+    })
+
+    ngOnInit(): void {
+        this.userService.getUsers().subscribe({
+            next: (users) => console.log(users),
+            error: (err) => console.log(err)
+        })
+    }
 }
