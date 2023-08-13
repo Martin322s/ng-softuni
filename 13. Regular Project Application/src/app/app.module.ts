@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { CreateFactComponent } from './create-fact/create-fact.component';
 import { EditFactComponent } from './edit-fact/edit-fact.component';
 import { FactDetailsComponent } from './fact-details/fact-details.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FactDetailsComponent } from './fact-details/fact-details.component';
     LoginComponent,
     CreateFactComponent,
     EditFactComponent,
-    FactDetailsComponent
+    FactDetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
