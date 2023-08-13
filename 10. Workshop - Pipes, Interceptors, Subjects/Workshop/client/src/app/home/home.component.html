@@ -1,6 +1,8 @@
 <div class="container">
     <main>
-        <app-main></app-main>
+        <ng-container *ngIf="!(navService.isRegistered$ | async)">
+            <app-main></app-main>
+        </ng-container>
         <div class="theme-title" *ngFor="let post of posts">
             <div class="theme-container">
                 <div class="theme-name-wrapper">
@@ -16,7 +18,7 @@
                                 </div>
                             </div>
                             <div class="subscribers">
-                                <!-- <button class="subscribe">Subscribe</button> -->
+                                <button class="subscribe" *ngIf="navService.isRegistered$ | async">Subscribe</button>
                                 <p>Subscribers: <span>{{post.subscribers}}</span></p>
                             </div>
                         </div>

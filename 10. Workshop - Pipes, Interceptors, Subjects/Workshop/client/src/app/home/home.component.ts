@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { NavServiceService } from '../nav-service.service';
 
 interface Post {
     _id: string,
@@ -17,7 +18,9 @@ interface Post {
 export class HomeComponent implements OnInit {
     posts: Post[] = [];
 
-    constructor(@Inject(ApiService) private apiService: ApiService) { }
+    constructor(
+        @Inject(ApiService) private apiService: ApiService, 
+        public navService: NavServiceService) { }
 
     ngOnInit(): void {
         this.apiService.get('themes').subscribe(
