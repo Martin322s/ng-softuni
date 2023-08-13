@@ -1,18 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http'
+import { environment } from '../environments/environment';
+import { ITheme } from './shared/interfaces/theme';
+import { IPost } from './shared/interfaces/post';
 
-@Injectable()
+const apiURL = environment.apiURL;
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ApiService {
-    posts: [] = [];
-    baseUrl: string = 'http://localhost:3000/api';
-    constructor(private httpCilent: HttpClient) { }
 
-    get(endpoint: string, limit?: number): Observable<any> {
-        if (limit) {
-            return this.httpCilent.get(`${this.baseUrl}/${endpoint}?limit=${limit}`);
-        } else {
-            return this.httpCilent.get(`${this.baseUrl}/${endpoint}`);
-        }
-    }
+  constructor(private httpClient: HttpClient) { }
+
+  loadThemes() {
+    return this.httpClient.get<ITheme[]>(`${apiURL}/themes`);
+  }
+
+  loadTheme(id: number) {
+    return this.httpClient.get<ITheme>(`${apiURL}/themes/${id}`);
+  }
+
+  loadPosts(limit?: number) {
+    return this.httpClient.get<IPost[]>(`${apiURL}/posts${limit ? `?limit=${limit}` : ``}`);
+  }
+
 }

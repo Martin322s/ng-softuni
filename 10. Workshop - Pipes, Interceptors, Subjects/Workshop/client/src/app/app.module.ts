@@ -1,55 +1,37 @@
-import { NgModule } from '@angular/core';
+import { Component, ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { AsideComponent } from './aside/aside.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ApiService } from './api.service';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { MainComponent } from './main/main.component';
-import { LoginComponent } from './login/login.component';
-import { NewThemeComponent } from './new-theme/new-theme.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RegisterComponent } from './register/register.component';
-import { ThemeDetailsComponent } from './theme-details/theme-details.component';
+import { SharedModule } from './shared/shared.module';
+import { MyModule } from './my-module';
 import { AppRoutingModule } from './app-routing.module';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { AuthProvider } from './api-interceptor';
-import { AuthService } from './services/authService';
-import { NavServiceService } from './nav-service.service';
+import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { API_ERROR } from './shared/constants';
+import { BehaviorSubject } from 'rxjs';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    AsideComponent,
-    NotFoundComponent,
-    MainComponent,
-    LoginComponent,
-    NewThemeComponent,
-    ProfileComponent,
-    RegisterComponent,
-    ThemeDetailsComponent,
-    EditProfileComponent,
+    AuthenticateComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
-    FormsModule,
+    BrowserModule,
+    CoreModule,
+    HttpClientModule,
+    SharedModule,
+    MyModule.withProviders()
   ],
   providers: [
-    ApiService,
-    AuthProvider,
-    AuthService, 
-    NavServiceService
+    appInterceptorProvider,
+    {
+      provide: API_ERROR,
+      useValue: new BehaviorSubject(null)
+    }
   ],
-  bootstrap: [AppComponent, FooterComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
