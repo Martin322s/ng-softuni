@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CreateFactComponent } from './create-fact/create-fact.component';
+import { EditFactComponent } from './edit-fact/edit-fact.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreateFactComponent } from './create-fact/create-fact.component';
     DashboardComponent,
     RegisterComponent,
     LoginComponent,
-    CreateFactComponent
+    CreateFactComponent,
+    EditFactComponent
   ],
   imports: [
     BrowserModule,
