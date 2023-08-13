@@ -42,7 +42,8 @@ export class RegisterComponent {
                         localStorage.setItem('user', JSON.stringify({
                             _id: res._id,
                             username: res.username,
-                            email: res.email
+                            email: res.email,
+                            accessToken: res.accessToken
                         }));
                         this.navService.register();
                         

@@ -17,7 +17,11 @@ export class AuthService {
         });
     }
 
-    getProfile() {
-        return this.http.get<any>(`${this.apiUrl}/users/profile`);
+    getProfile(token: string) {
+        return this.http.get<any>(`${this.apiUrl}/users/profile`, {
+            headers: {
+                'auth-cookie': token
+            }
+        });
     }
 }

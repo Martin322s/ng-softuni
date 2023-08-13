@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../services/authService';
+import { getToken } from '../utils/auth';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,8 @@ import { AuthService } from '../services/authService';
 export class ProfileComponent {
   data: any;
   constructor(private authService: AuthService) {
-    this.authService.getProfile().subscribe({
+    const token = getToken();
+    this.authService.getProfile(token).subscribe({
       next: (res) => this.data = res,
       error: (err) => console.log(err)
     });
