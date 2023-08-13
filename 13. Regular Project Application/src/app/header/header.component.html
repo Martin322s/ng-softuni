@@ -1,20 +1,20 @@
 <header>
-    <a id="logo" href="/">
+    <a id="logo" routerLink="/">
         <img id="logo-img" src="./assets/images/logo.png" alt="logo" />
     </a>
     <nav>
         <div>
-            <a href="#">Fun Facts</a>
+            <a routerLink="/facts">Fun Facts</a>
         </div>
         <!-- Logged-in users -->
         <div class="user">
-            <a href="#">Add Fact</a>
-            <a href="#">Logout</a>
+            <a routerLink="/create-fact">Add Fact</a>
+            <a routerLink="/users/logout">Logout</a>
         </div>
         <!-- Guest users -->
         <div class="guest">
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a routerLink="/users/login">Login</a>
+            <a routerLink="/users/register">Register</a>
         </div>
     </nav>
 </header>
