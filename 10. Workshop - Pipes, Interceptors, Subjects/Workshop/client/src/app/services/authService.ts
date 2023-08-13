@@ -8,12 +8,16 @@ export class AuthService {
     constructor(private http: HttpClient) { }
 
     registerUser(userData: any) {
-        console.log(`${this.apiUrl}/register`);
         const body = JSON.stringify(userData);
+
         return this.http.post<any>(`${this.apiUrl}/register`, body, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
+    }
+
+    getProfile() {
+        return this.http.get<any>(`${this.apiUrl}/users/profile`);
     }
 }
