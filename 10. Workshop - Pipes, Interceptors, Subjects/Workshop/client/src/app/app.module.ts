@@ -18,6 +18,9 @@ import { RegisterComponent } from './register/register.component';
 import { ThemeDetailsComponent } from './theme-details/theme-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AuthProvider } from './api-interceptor';
+import { AuthService } from './services/authService';
+import { NavServiceService } from './nav-service.service';
 
 @NgModule({
   declarations: [
@@ -39,10 +42,13 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
-    ApiService
+    ApiService,
+    AuthProvider,
+    AuthService, 
+    NavServiceService
   ],
   bootstrap: [AppComponent, FooterComponent]
 })

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { isAuth } from '../utils/auth';
+import { NavServiceService } from '../nav-service.service';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  loggedIn: false | undefined
+  loggedIn: boolean = isAuth();
+  constructor(public navService: NavServiceService) { }
 }
