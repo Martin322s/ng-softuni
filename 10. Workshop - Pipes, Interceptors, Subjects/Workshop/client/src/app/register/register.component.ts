@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/authService';
+import { Router } from '@angular/router';
+import { NavServiceService } from '../nav-service.service';
 
 @Component({
     selector: 'app-register',
@@ -9,7 +12,7 @@ import { NgForm } from '@angular/forms';
 export class RegisterComponent {
     isEmptyUsername: boolean = false;
 
-    constructor() { }
+    constructor(private apiService: AuthService, private router: Router, private navService: NavServiceService) { }
 
     isValidEmail(email: string): boolean {
         const isValid = /[^@]{6,}@gmail\.(bg|com)/.test(email);
@@ -30,7 +33,26 @@ export class RegisterComponent {
     }
 
     submitHandler(formData: NgForm) {
-        console.log(formData.value);
+        if (Object.values(formData.value).some(x => x === '')) {
+            alert('All fields are required!');
+        } else {
+            this.apiService.registerUser(formData.value)
+                .subscribe({
+                    next: (res: any) => {
+                        localStorage.setItem('user', JSON.stringify({
+                            _id: res._id,
+                            username: res.username,
+                            email: res.email
+                        }));
+                        this.navService.register();
+                        
+                        this.router.navigate(['/']);
+                    },
+                    error: (err: any) => {
+                        console.log(err);
+                    }
+                })
+        }
     }
 
     blurEvent(username: HTMLInputElement) {
