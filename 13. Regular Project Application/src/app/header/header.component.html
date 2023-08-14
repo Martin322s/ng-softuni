@@ -6,15 +6,17 @@
         <div>
             <a routerLink="/facts">Fun Facts</a>
         </div>
-        <!-- Logged-in users -->
-        <div class="user">
-            <a routerLink="/create-fact">Add Fact</a>
-            <a routerLink="/logout">Logout</a>
-        </div>
-        <!-- Guest users -->
-        <div class="guest">
-            <a routerLink="/login">Login</a>
-            <a routerLink="/register">Register</a>
-        </div>
+        <ng-container *ngIf="isLoggedIn">
+            <div class="user">
+                <a routerLink="/create-fact">Add Fact</a>
+                <a routerLink="/logout">Logout</a>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!isLoggedIn">
+            <div class="guest">
+                <a routerLink="/login">Login</a>
+                <a routerLink="/register">Register</a>
+            </div>
+        </ng-container>
     </nav>
 </header>
