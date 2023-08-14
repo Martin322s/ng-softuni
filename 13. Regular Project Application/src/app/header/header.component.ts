@@ -1,23 +1,18 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth-service.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent {;
   isLoggedIn: boolean = false;
+  constructor(private authService: AuthService) {
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
 
-  constructor() {
-    let user: any = localStorage.getItem('session');
-    if (user !== null) {
-      user = JSON.parse(user);
-    } else {
-      user = {};
-    }
-
-    if (user?.accessToken) {
-      this.isLoggedIn = true;
-    }
+  LoggedIn() {
+    return this.isLoggedIn;
   }
 }
