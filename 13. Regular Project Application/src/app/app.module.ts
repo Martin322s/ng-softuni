@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { CreateFactComponent } from './create-fact/create-fact.component';
 import { EditFactComponent } from './edit-fact/edit-fact.component';
 import { FactDetailsComponent } from './fact-details/fact-details.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthInterceptorProvider } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,13 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
