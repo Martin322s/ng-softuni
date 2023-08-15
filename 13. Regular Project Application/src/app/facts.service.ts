@@ -12,4 +12,8 @@ export class FactsService {
   getAll() {
     return this.http.get(`${this.apiUrl}/data/facts?sortBy=_createdOn%20desc`);
   }
+
+  getOne(id: string | undefined) {
+    return this.http.get(`${this.apiUrl}/data/facts/${id}`);
+  }
 }
