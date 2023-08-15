@@ -13,18 +13,20 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor() { }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let user = localStorage.getItem('user');
-    if (user !== null) {
-      let token: string = JSON.parse(user).accessToken;
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (request.url.includes('/logout')) {
+      let user = localStorage.getItem('user')
+      let token = user ? JSON.parse(user).accessToken : null;
+
       const modifiedRequest = request.clone({
         setHeaders: {
           'X-Authorization': token
         }
       });
       return next.handle(modifiedRequest);
+    } else {
+      return next.handle(request);
     }
-    return next.handle(request);
   }
 }
 
