@@ -6,13 +6,13 @@
         <div>
             <a routerLink="/facts">Fun Facts</a>
         </div>
-        <ng-container *ngIf="LoggedIn()">
+        <ng-container *ngIf="isAuthenticated">
             <div class="user">
                 <a routerLink="/create-fact">Add Fact</a>
                 <a routerLink="/logout">Logout</a>
             </div>
         </ng-container>
-        <ng-container *ngIf="!LoggedIn()">
+        <ng-container *ngIf="!isAuthenticated">
             <div class="guest">
                 <a routerLink="/login">Login</a>
                 <a routerLink="/register">Register</a>
