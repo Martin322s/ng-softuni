@@ -15,6 +15,7 @@ import { EditFactComponent } from './edit-fact/edit-fact.component';
 import { FactDetailsComponent } from './fact-details/fact-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthInterceptorProvider } from './auth.interceptor';
+import { JsonToObjectPipe } from './json-to-object.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AuthInterceptorProvider } from './auth.interceptor';
     CreateFactComponent,
     EditFactComponent,
     FactDetailsComponent,
-    FooterComponent
+    FooterComponent,
+    JsonToObjectPipe
   ],
   imports: [
     BrowserModule,
