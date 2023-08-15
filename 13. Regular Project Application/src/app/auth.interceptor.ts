@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (request.url.includes('/logout')) {
       let user = localStorage.getItem('user')
       let token = user ? JSON.parse(user).accessToken : null;
-
+      
       const modifiedRequest = request.clone({
         setHeaders: {
           'X-Authorization': token
