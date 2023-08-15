@@ -12,14 +12,6 @@
                     {{fact.moreInfo}}
                 </p>
             </div>
-            <h3>Likes:<span id="likes">0</span></h3>
-            <!--Edit and Delete are only for creator-->
-            <div id="action-buttons">
-                <a routerLink="/edit/{{fact._id}}" id="edit-btn">Edit</a>
-                <a routerLink="/delete/{{fact._id}}" id="delete-btn">Delete</a>
-                <!--Bonus - Only for logged-in users ( not authors )-->
-                <a routerLink="/like" id="like-btn">Like</a>
-            </div>
         </div>
     </div>
 </section>

@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 export class FactsService {
   apiUrl: string = 'http://localhost:3030';
   user: any = localStorage.getItem('session');
-  token: string = JSON.parse(this.user).accessToken;
+  token: string = JSON.parse(this.user)?.accessToken;
 
   constructor(private http: HttpClient) {
     console.log(JSON.parse(this.user).accessToken);
