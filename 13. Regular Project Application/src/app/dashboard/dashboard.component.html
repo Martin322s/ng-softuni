@@ -1,6 +1,6 @@
 <!-- Dashboard page -->
 <h2>Fun Facts</h2>
-<section id="dashboard">
+<section id="dashboard" *ngIf="allFacts">
     <div class="fact" *ngFor="let data of allFacts">
         <img src={{data.imageUrl}} alt="example3">
         <h3 class="category">{{data.category}}</h3>
@@ -9,4 +9,4 @@
         </div>
     </section>
 
-<h2>No Fun Facts yet.</h2>
+<h2 *ngIf="!allFacts">No Fun Facts yet.</h2>

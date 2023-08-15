@@ -5,13 +5,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateFactComponent } from './create-fact/create-fact.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { FactDetailsComponent } from './fact-details/fact-details.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', component: HomeComponent },
     { path: 'facts', pathMatch: 'full', component: DashboardComponent },
     { path: 'create-fact', pathMatch: 'full', component: CreateFactComponent },
     { path: 'login', pathMatch: 'full', component: LoginComponent },
-    { path: 'register', pathMatch: 'full', component: RegisterComponent }
+    { path: 'register', pathMatch: 'full', component: RegisterComponent },
+    { path: 'details/:factId', pathMatch: 'full', component: FactDetailsComponent}
 ];
 
 @NgModule({
