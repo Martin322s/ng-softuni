@@ -9,7 +9,10 @@ import { CommonModule } from '@angular/common';
     styleUrl: './home.component.css'
 })
 export class HomeComponent {
+    isActive = false;
+
     handleClick() {
-        console.log('clicked');
+        this.isActive = !this.isActive;
+        console.log(this.isActive);
     }
 }
