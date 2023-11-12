@@ -1,1 +1,5 @@
-<p>home works!</p>
+<ul>
+    <li *ngFor="let game of games">
+        <span *ngIf="game.year >= 2010">{{ game.name + ': ' + game.year}}</span>
+    </li>
+</ul>
