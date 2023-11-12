@@ -1,5 +1,7 @@
-<ul>
+<ul *ngIf="render === true">
     <li *ngFor="let game of games">
-        <span *ngIf="game.year >= 2010">{{ game.name + ': ' + game.year}}</span>
+        <span>{{ game.name + ': ' + game.year}}</span>
     </li>
 </ul>
+
+<button (click)="renderGames()">{{render === true ? 'Hide' : 'Show'}} games</button>
