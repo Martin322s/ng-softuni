@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserService } from './user.service';
 
 @Component({
     selector: 'app-root',
@@ -12,18 +13,14 @@ import { UserListComponent } from './user-list/user-list.component';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-    users: { name: string; age: number; }[] = [
-        { name: 'Peter', age: 22 },
-        { name: 'Martin', age: 23 },
-        { name: 'Mitko', age: 23 },
-        { name: 'Ivan', age: 24 }
-    ];
+    title = "Application works!";
+    appUsers: { name: string; age: number; }[] = [];
 
-    addNewUser(name: HTMLInputElement, age: HTMLInputElement) {
-        const user = { name: name.value, age: Number(age.value) };
-        this.users = [...this.users, user];
+    constructor(public userService: UserService) {
+        this.appUsers = userService.users;
+    }
 
-        name.value = '';
-        age.value = '';
+    setUser(inputName: HTMLInputElement, inputAge: HTMLInputElement) {
+        this.userService.addNewUser(inputName, inputAge);
     }
 }

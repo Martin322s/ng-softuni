@@ -1,7 +1,7 @@
-<h1>Application works!</h1>
+<h1>{{title}}</h1>
 
 <input #name type="text" name="name" placeholder="Name">
 <input #age type="text" name="age" placeholder="Age">
-<button (click)="addNewUser(name, age)">Add new user</button>
+<button (click)="setUser(name, age)">Add new user</button>
 
-<app-user-list [users]="users"></app-user-list>
+<app-user-list [users]="userService.users"></app-user-list>
