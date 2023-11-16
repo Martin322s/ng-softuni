@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './user.service';
-import { Observable, map } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -21,43 +20,15 @@ export class AppComponent {
         this.appUsers = userService.users;
     }
 
+    ngOnInit() {
+        this.userService.getUsers()
+            .then(users => {
+                console.log(users);
+            });
+    }
+
     setUser(inputName: HTMLInputElement, inputAge: HTMLInputElement): void {
         this.userService.addNewUser(inputName, inputAge);
         this.appUsers = this.userService.users;
     }
 }
-
-const p = new Promise((resolve, reject) => {
-    console.log('from promise involved');
-
-    setTimeout(() => {
-        resolve(1200);
-    }, 4000);
-});
-
-p.then((data) => console.log('promise', data));
-
-function int(value: number) {
-    return new Observable<number>(observer => {
-        // observer.next(1000);
-        // observer.next(1001);
-        // observer.next(1002);
-        let count = 0;
-
-        const interval = setInterval(() => {
-            observer.next(count++);
-        }, value);
-
-        return () => {
-            clearInterval(interval);
-        }
-    });
-}
-
-const stream$ = int(1000).pipe(map((x) => x * 2)); 
-
-stream$.subscribe({
-    next: (x) => console.log(x),
-    error: () => console.log('error'),
-    complete: () => console.log('completed')
-});

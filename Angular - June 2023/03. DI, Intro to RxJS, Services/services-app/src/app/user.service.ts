@@ -7,12 +7,8 @@ export class UserService {
 
     constructor() { }
 
-    users: { name: string; age: number; }[] = [
-        { name: 'Peter', age: 22 },
-        { name: 'Martin', age: 23 },
-        { name: 'Mitko', age: 23 },
-        { name: 'Ivan', age: 24 }
-    ];
+
+    users: { name: string; age: number; }[] = [];
 
     addNewUser(name: HTMLInputElement, age: HTMLInputElement) {
         const user = { name: name.value, age: Number(age.value) };
@@ -20,5 +16,9 @@ export class UserService {
 
         name.value = '';
         age.value = '';
+    }
+
+    getUsers() {
+        return fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());
     }
 }
