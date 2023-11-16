@@ -10,5 +10,5 @@ import { UserListItemComponent } from '../user-list-item/user-list-item.componen
   styleUrl: './user-list.component.css'
 })
 export class UserListComponent {
-  @Input() users: { name: string; age: number; }[] = [];
+  @Input() users: { name: string; email: string; }[] = [];
 }

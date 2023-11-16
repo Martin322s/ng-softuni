@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user-list-item.component.css'
 })
 export class UserListItemComponent {
-  @Input() user: { name: string, age: number } | undefined = undefined;
+  @Input() user: { name: string, email: string } | undefined = undefined;
 }
