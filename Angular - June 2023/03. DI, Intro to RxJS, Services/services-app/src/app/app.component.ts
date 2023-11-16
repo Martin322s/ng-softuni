@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserService } from './user.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -29,7 +29,7 @@ export class AppComponent {
 
 const p = new Promise((resolve, reject) => {
     console.log('from promise involved');
-    
+
     setTimeout(() => {
         resolve(1200);
     }, 4000);
@@ -37,10 +37,27 @@ const p = new Promise((resolve, reject) => {
 
 p.then((data) => console.log('promise', data));
 
-const o = new Observable(observer => {
-    observer.next(1000);
-    observer.next(1001);
-    observer.next(1002);
-});
+function int(value: number) {
+    return new Observable<number>(observer => {
+        // observer.next(1000);
+        // observer.next(1001);
+        // observer.next(1002);
+        let count = 0;
 
-o.subscribe(data => console.log('observer - ', data));
+        const interval = setInterval(() => {
+            observer.next(count++);
+        }, value);
+
+        return () => {
+            clearInterval(interval);
+        }
+    });
+}
+
+const stream$ = int(1000).pipe(map((x) => x * 2)); 
+
+stream$.subscribe({
+    next: (x) => console.log(x),
+    error: () => console.log('error'),
+    complete: () => console.log('completed')
+});
