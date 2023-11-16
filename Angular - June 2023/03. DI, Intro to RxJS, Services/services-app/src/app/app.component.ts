@@ -9,8 +9,7 @@ import { UserService } from './user.service';
     standalone: true,
     imports: [CommonModule, RouterOutlet, UserListComponent],
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
     title = "Application works!";
@@ -20,7 +19,8 @@ export class AppComponent {
         this.appUsers = userService.users;
     }
 
-    setUser(inputName: HTMLInputElement, inputAge: HTMLInputElement) {
+    setUser(inputName: HTMLInputElement, inputAge: HTMLInputElement): void {
         this.userService.addNewUser(inputName, inputAge);
+        this.appUsers = this.userService.users;
     }
 }
