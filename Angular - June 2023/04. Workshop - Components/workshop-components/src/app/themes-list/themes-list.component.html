@@ -1,5 +1,8 @@
 <div *ngFor="let theme of themesList" class="theme-container">
-    <div class="theme-name-wrapper">
+    <div *ngIf="isLoading">
+        <app-loader />
+    </div>
+    <div *ngIf="!isLoading" class="theme-name-wrapper">
         <div class="theme-name">
             <a href="#" class="normal">
                 <h2>{{theme.themeName}}</h2>
