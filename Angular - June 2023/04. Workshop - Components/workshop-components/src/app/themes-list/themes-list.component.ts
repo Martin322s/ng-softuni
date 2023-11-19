@@ -3,18 +3,18 @@ import { ApiService } from '../api.service';
 
 
 @Component({
-  selector: 'app-themes-list',
-  templateUrl: './themes-list.component.html',
-  styleUrls: ['./themes-list.component.css']
+    selector: 'app-themes-list',
+    templateUrl: './themes-list.component.html',
+    styleUrls: ['./themes-list.component.css']
 })
 export class ThemesListComponent implements OnInit {
-  constructor(private apiService: ApiService) {
+    constructor(private apiService: ApiService) {
 
-  }
+    }
 
-  ngOnInit(): void {
-    this.apiService.getThemes().subscribe(themes => {
-      console.log(themes);
-    });
-  }
+    ngOnInit(): void {
+        this.apiService.getThemes().subscribe(themes => {
+            console.log(themes);
+        });
+    }
 }
