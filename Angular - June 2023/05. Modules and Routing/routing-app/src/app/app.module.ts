@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { GlobalLoaderComponent } from './core/global-loader/global-loader.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { SharedModule } from './shared/shared.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule
+    CoreModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
