@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/interfaces/User';
+import { UserServiceService } from 'src/app/user-service.service';
 
 @Component({
   selector: 'app-user-list',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent {
+  users: User[] = []
+  constructor(private userService: UserServiceService) {
 
+  }
+
+  setUsers() {
+    this.userService.getUsers().subscribe(data => {
+      this.users = data;
+    })
+  }
 }

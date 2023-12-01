@@ -5,10 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { GlobalLoaderComponent } from './core/global-loader/global-loader.component';
-import { SpinnerComponent } from './shared/spinner/spinner.component';
-import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +17,8 @@ import { UsersModule } from './users/users.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    UsersModule
+    UsersModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
