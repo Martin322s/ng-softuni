@@ -2,29 +2,30 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
-import { ProfileComponent } from './user/profile/profile.component';
-import { HomeComponent } from './home/home.component';
+import { MainComponent } from './main/main.component';
+import { NewThemeComponent } from './theme/new-theme/new-theme.component';
+import { ThemeContentComponent } from './theme/theme-content/theme-content.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'themes',
     pathMatch: 'full',
-    component: LoginComponent
+    component: MainComponent
   },
   {
-    path: 'register',
+    path: 'create',
     pathMatch: 'full',
-    component: RegisterComponent
+    component: NewThemeComponent
   },
   {
     path: 'profile',
     pathMatch: 'full',
-    component: ProfileComponent
+    component: RegisterComponent
   },
   {
-    path: 'logout',
+    path: ':themeId',
     pathMatch: 'full',
-    component: HomeComponent
+    component: ThemeContentComponent
   }
 ];
 
@@ -32,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserRoutingModule { }
+export class ThemeRoutingModule { }

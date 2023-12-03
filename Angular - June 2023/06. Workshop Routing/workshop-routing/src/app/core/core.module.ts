@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserRoutingModule } from '../user-routing.module';
+import { ThemeRoutingModule } from '../theme-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { UserRoutingModule } from '../user-routing.module';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    ThemeRoutingModule
   ],
   // Which components to be exported from this module
   exports: [
