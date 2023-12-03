@@ -3,8 +3,14 @@
         <div class="logo-wrap">
             <p class="logo"><span class="logo">SoftUni Forum</span></p>
         </div>
-        <div *ngIf="isLoggedIn" class="mini-navbar">
+        <div class="mini-navbar">
             <ul>
+                <!-- <li>
+                    <a href="#">John's profile</a>
+                </li>
+                <li>
+                    <a href="#">Logout</a>
+                </li> -->
                 <li>
                     <a href="#">Login</a>
                 </li>
@@ -14,7 +20,7 @@
             </ul>
         </div>
     </div>
-    <nav *ngIf="!isLoggedIn">
+    <nav>
         <ul>
             <li>
                 <a href="#">Home</a>
@@ -27,4 +33,5 @@
             </li>
         </ul>
     </nav>
+
 </header>
