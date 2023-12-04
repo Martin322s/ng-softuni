@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
 import { MainComponent } from './main/main.component';
 import { NewThemeComponent } from './theme/new-theme/new-theme.component';
 import { ThemeContentComponent } from './theme/theme-content/theme-content.component';
+import { AuthActivate } from './core/guards/activateGuard';
 
 const routes: Routes = [
   {
@@ -15,12 +14,8 @@ const routes: Routes = [
   {
     path: 'create',
     pathMatch: 'full',
-    component: NewThemeComponent
-  },
-  {
-    path: 'profile',
-    pathMatch: 'full',
-    component: RegisterComponent
+    component: NewThemeComponent,
+    canActivate: [AuthActivate]
   },
   {
     path: ':themeId',
