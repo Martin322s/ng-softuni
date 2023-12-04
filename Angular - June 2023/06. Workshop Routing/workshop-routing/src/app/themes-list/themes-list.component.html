@@ -1,8 +1,8 @@
+<app-home />
 <div *ngFor="let theme of themesList" class="theme-container">
     <div *ngIf="isLoading">
         <app-loader />
     </div>
-    <app-home />
     <div *ngIf="!isLoading" class="theme-name-wrapper">
         <div class="theme-name">
             <a routerLink="/themes/1" class="normal">
