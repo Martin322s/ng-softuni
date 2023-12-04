@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  constructor(private userService: UserService) {
+
+  }
+  login(event: MouseEvent, email: string, password: string): void {
+    event.preventDefault();
+    this.userService.login();
+  }
 }

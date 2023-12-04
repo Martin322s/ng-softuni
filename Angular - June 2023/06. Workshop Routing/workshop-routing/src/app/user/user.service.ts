@@ -29,6 +29,8 @@ export class UserService {
       phoneNumber: '0877040853',
       password: '123456'
     }
+
+    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
   }
 
   logout(): void {
