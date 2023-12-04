@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { UserRoutingModule } from './user-routing.module';
 import { ThemeRoutingModule } from './theme-routing.module';
 import { ThemeModule } from './theme/theme.module';
-import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { WelcomeMessageComponent } from './welcome-message/welcome-message.compo
     ThemesListComponent,
     PostsListComponent,
     HomeComponent,
-    WelcomeMessageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
