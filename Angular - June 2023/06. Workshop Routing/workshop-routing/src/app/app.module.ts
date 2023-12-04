@@ -11,6 +11,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { UserRoutingModule } from './user-routing.module';
+import { ThemeRoutingModule } from './theme-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserRoutingModule } from './user-routing.module';
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
-    UserRoutingModule
+    UserRoutingModule,
+    ThemeRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

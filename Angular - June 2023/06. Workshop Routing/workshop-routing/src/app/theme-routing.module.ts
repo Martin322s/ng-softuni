@@ -8,20 +8,18 @@ import { AuthActivate } from './core/guards/activateGuard';
 const routes: Routes = [
   {
     path: 'themes',
-    pathMatch: 'full',
     component: MainComponent
   },
   {
     path: 'create',
-    pathMatch: 'full',
     component: NewThemeComponent,
     canActivate: [AuthActivate]
   },
-  // {
-  //   path: ':themeId',
-  //   pathMatch: 'full',
-  //   component: ThemeContentComponent
-  // }
+  {
+    path: 'themes/:themeId',
+    component: ThemeContentComponent,
+    canActivate: [AuthActivate]
+  }
 ];
 
 @NgModule({

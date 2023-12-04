@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeContentComponent } from './theme-content/theme-content.component';
-import { ThemesRoutingModule } from '../user-routing.module';
+import { ThemeRoutingModule } from '../theme-routing.module';
+// import { ThemesRoutingModule } from '../theme-routing.module';
 
 
 
@@ -13,7 +14,7 @@ import { ThemesRoutingModule } from '../user-routing.module';
   ],
   imports: [
     CommonModule,
-    ThemesRoutingModule
+    ThemeRoutingModule
   ]
 })
 export class ThemeModule { }

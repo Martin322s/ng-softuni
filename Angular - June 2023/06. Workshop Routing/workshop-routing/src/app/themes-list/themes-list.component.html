@@ -2,9 +2,10 @@
     <div *ngIf="isLoading">
         <app-loader />
     </div>
+    <app-home />
     <div *ngIf="!isLoading" class="theme-name-wrapper">
         <div class="theme-name">
-            <a routerLink="/themeId" class="normal">
+            <a routerLink="/themes/1" class="normal">
                 <h2>{{theme.themeName}}</h2>
             </a>
             <div class="columns">
