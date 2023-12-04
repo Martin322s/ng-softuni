@@ -11,13 +11,11 @@ const routes: Routes = [
     path: 'login',
     pathMatch: 'full',
     component: LoginComponent,
-    canActivate: [AuthActivate]
   },
   {
     path: 'register',
     pathMatch: 'full',
     component: RegisterComponent,
-    canActivate: [AuthActivate]
   },
   {
     path: 'profile',

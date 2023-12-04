@@ -17,11 +17,11 @@ const routes: Routes = [
     component: NewThemeComponent,
     canActivate: [AuthActivate]
   },
-  {
-    path: ':themeId',
-    pathMatch: 'full',
-    component: ThemeContentComponent
-  }
+  // {
+  //   path: ':themeId',
+  //   pathMatch: 'full',
+  //   component: ThemeContentComponent
+  // }
 ];
 
 @NgModule({
