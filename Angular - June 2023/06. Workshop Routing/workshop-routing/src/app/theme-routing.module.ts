@@ -17,8 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'themes/:themeId',
-    component: ThemeContentComponent,
-    canActivate: [AuthActivate]
+    component: ThemeContentComponent
   }
 ];
 

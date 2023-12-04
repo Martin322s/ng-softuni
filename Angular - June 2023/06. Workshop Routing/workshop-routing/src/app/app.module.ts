@@ -12,6 +12,8 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { UserRoutingModule } from './user-routing.module';
 import { ThemeRoutingModule } from './theme-routing.module';
+import { ThemeModule } from './theme/theme.module';
+import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { ThemeRoutingModule } from './theme-routing.module';
     ThemesListComponent,
     PostsListComponent,
     HomeComponent,
+    WelcomeMessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +31,10 @@ import { ThemeRoutingModule } from './theme-routing.module';
     SharedModule,
     AppRoutingModule,
     UserRoutingModule,
-    ThemeRoutingModule
+    ThemeRoutingModule,
+    ThemeModule
   ],
+  exports: [HomeComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
