@@ -1,4 +1,4 @@
-function solve(month: string): void {
+function monthPrinter(month: string): void {
     switch (month) {
         case '1': console.log("January");
             break;
