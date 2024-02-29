@@ -1,4 +1,4 @@
-function solve(input: number): void {
+function ages(input: number): void {
     let age: number = input;
 
     if ((age >= 0) && (age <= 2)) {
