@@ -1,4 +1,4 @@
-function solve(start: number, end: number) {
+function solve(start: number, end: number): void {
     let startNum: number = start;
     let endNum: number = end;
     let output: string = "";
